@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفضل أدوات الذكاء الاصطناعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #060b19;
+            --card-bg: #111827;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --teal: #14b8a6;
+            --orange: #f59e0b;
+            --green: #10b981;
+            --pink: #ec4899;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            background-image: radial-gradient(circle at top, #0f172a, #060b19);
+            color: var(--text-light);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* --- Header --- */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .page-header h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .page-header h1 span {
+            color: #38bdf8;
+        }
+        .page-header p {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 1.2em;
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- Grid Layout --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* --- Card Styles --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Colors based on your image */
+        .card.c-blue { border-top: 5px solid var(--blue); box-shadow: 0 -5px 20px rgba(59, 130, 246, 0.2); }
+        .card.c-purple { border-top: 5px solid var(--purple); box-shadow: 0 -5px 20px rgba(168, 85, 247, 0.2); }
+        .card.c-teal { border-top: 5px solid var(--teal); box-shadow: 0 -5px 20px rgba(20, 184, 166, 0.2); }
+        .card.c-orange { border-top: 5px solid var(--orange); box-shadow: 0 -5px 20px rgba(245, 158, 11, 0.2); }
+        .card.c-green { border-top: 5px solid var(--green); box-shadow: 0 -5px 20px rgba(16, 185, 129, 0.2); }
+        .card.c-pink { border-top: 5px solid var(--pink); box-shadow: 0 -5px 20px rgba(236, 72, 153, 0.2); }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .number-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+        }
+        .c-blue .number-badge { background-color: var(--blue); }
+        .c-purple .number-badge { background-color: var(--purple); }
+        .c-teal .number-badge { background-color: var(--teal); }
+        .c-orange .number-badge { background-color: var(--orange); }
+        .c-green .number-badge { background-color: var(--green); }
+        .c-pink .number-badge { background-color: var(--pink); }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .card-subtitle {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Tools List */
+        .tool-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .tool-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s;
+        }
+        .tool-item:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .tool-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 40%;
+        }
+        .tool-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: white;
+            padding: 2px;
+        }
+        .tool-name {
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1.1em;
+        }
+        .tool-name:hover {
+            text-decoration: underline;
+        }
+        .tool-desc {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            width: 60%;
+            text-align: right;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding-right: 10px;
+        }
+
+        /* --- 7th Wide Card --- */
+        .wide-card-container {
+            grid-column: 1 / -1; /* يأخذ مساحة الـ 3 أعمدة */
+            margin-top: 10px;
+        }
+        .card.c-wide {
+            border-top: 5px solid #4f46e5;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .wide-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 30%;
+        }
+        .wide-tools {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* عمودين داخل البطاقة السابعة */
+            gap: 15px;
+            width: 65%;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #93c5fd;
+            padding: 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 15px;
+            border: 1px dashed rgba(59, 130, 246, 0.3);
+        }
+        .footer span {
+            color: #6ee7b7;
+        }
+
+        /* شاشات الجوال */
+        @media (max-width: 1024px) {
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+            .wide-card-container { grid-column: 1 / -1; }
+            .card.c-wide { flex-direction: column; }
+            .wide-content, .wide-tools { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>أفضل <span>أدوات الذكاء الاصطناعي</span></h1>
+        <p>الدليل الشامل لكل المجالات</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="card c-blue">
+            <div class="card-header">
+                <div class="number-badge">1</div>
+                <h2 class="card-title">توليد النصوص</h2>
+            </div>
+            <div class="card-subtitle">أدوات قوية لكتابة المحتوى، الإجابة على الأسئلة، والتعامل مع مختلف المهام النصية.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" class="tool-icon">
+                        <a href="https://chatgpt.com" target="_blank" class="tool-name">ChatGPT</a>
+                    </div>
+                    <div class="tool-desc">الأكثر شهرة وتنوعاً في كتابة النصوص.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" class="tool-icon">
+                        <a href="https://gemini.google.com" target="_blank" class="tool-name">Gemini</a>
+                    </div>
+                    <div class="tool-desc">قوي في البحث وربط المعلومات مع خدمات Google.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" class="tool-icon">
+                        <a href="https://claude.ai" target="_blank" class="tool-name">Claude</a>
+                    </div>
+                    <div class="tool-desc">ممتاز في الكتابة الطويلة والتحليل العميق والشرح المنظم.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=64" class="tool-icon">
+                        <a href="https://www.perplexity.ai" target="_blank" class="tool-name">Perplexity AI</a>
+                    </div>
+                    <div class="tool-desc">محرك بحث ذكي يعطي إجابات مدعومة بمصادر.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=mistral.ai&sz=64" class="tool-icon">
+                        <a href="https://mistral.ai" target="_blank" class="tool-name">Mistral AI</a>
+                    </div>
+                    <div class="tool-desc">نماذج مفتوحة المصدر قوية وسريعة لمعالجة النصوص.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card c-purple">
+            <div class="card-header">
+                <div class="number-badge">2</div>
+                <h2 class="card-title">توليد الصور</h2>
+            </div>
+            <div class="card-subtitle">أدوات لإنشاء صور احترافية عالية الجودة بالذكاء الاصطناعي.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=leonardo.ai&sz=64" class="tool-icon">
+                        <a href="https://leonardo.ai" target="_blank" class="tool-name">Leonardo AI</a>
+                    </div>
+                    <div class="tool-desc">إنشاء صور احترافية خاصة بالجيمز والتصميم.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=blackforestlabs.ai&sz=64" class="tool-icon">
+                        <a href="https://blackforestlabs.ai/" target="_blank" class="tool-name">Flux</a>
+                    </div>
+                    <div class="tool-desc">أداة حديثة لتوليد صور عالية الجودة.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=runwayml.com&sz=64" class="tool-icon">
+                        <a href="https://runwayml.com" target="_blank" class="tool-name">Runway</a>
+                    </div>
+                    <div class="tool-desc">تصميم + تعديل صور وفيديو باستخدام AI.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=64" class="tool-icon">
+                        <a href="https://x.ai" target="_blank" class="tool-name">Grok</a>
+                    </div>
+                    <div class="tool-desc">AI من X، يستخدم في التحليل والمحتوى.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card c-teal">
+            <div class="card-header">
+                <div class="number-badge">3</div>
+                <h2 class="card-title">توليد الفيديو</h2>
+            </div>
+            <div class="card-subtitle">أدوات لإنشاء وتحرير الفيديوهات باستخدام الذكاء الاصطناعي.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=lumen5.com&sz=64" class="tool-icon">
+                        <a href="https://lumen5.com" target="_blank" class="tool-name">Lumen5</a>
+                    </div>
+                    <div class="tool-desc">يحوّل المقالات إلى فيديوهات تلقائياً.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=heygen.com&sz=64" class="tool-icon">
+                        <a href="https://www.heygen.com" target="_blank" class="tool-name">HeyGen</a>
+                    </div>
+                    <div class="tool-desc">إنشاء فيديوهات بأفاتار (AI presenter) يتكلم.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=synthesia.io&sz=64" class="tool-icon">
+                        <a href="https://www.synthesia.io" target="_blank" class="tool-name">Synthesia</a>
+                    </div>
+                    <div class="tool-desc">فيديوهات تعليمية أو تسويقية بشخصيات AI.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=runwayml.com&sz=64" class="tool-icon">
+                        <a href="https://runwayml.com" target="_blank" class="tool-name">Runway</a>
+                    </div>
+                    <div class="tool-desc">أقوى أداة حالياً لتوليد وتحرير الفيديو بالذكاء الاصطناعي.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card c-orange">
+            <div class="card-header">
+                <div class="number-badge">4</div>
+                <h2 class="card-title">الصوت والموسيقى</h2>
+            </div>
+            <div class="card-subtitle">أدوات لإنشاء الصوت والموسيقى وتحويل النص إلى كلام واقعي.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=suno.com&sz=64" class="tool-icon">
+                        <a href="https://suno.com" target="_blank" class="tool-name">Suno</a>
+                    </div>
+                    <div class="tool-desc">إنشاء أغاني كاملة (كلمات + لحن + صوت).</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=64" class="tool-icon">
+                        <a href="https://elevenlabs.io" target="_blank" class="tool-name">ElevenLabs</a>
+                    </div>
+                    <div class="tool-desc">أفضل أداة لتحويل النص إلى صوت واقعي جداً.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=murf.ai&sz=64" class="tool-icon">
+                        <a href="https://murf.ai" target="_blank" class="tool-name">Murf AI</a>
+                    </div>
+                    <div class="tool-desc">احترافي Voice over للفيديوهات.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=aiva.ai&sz=64" class="tool-icon">
+                        <a href="https://www.aiva.ai" target="_blank" class="tool-name">AIVA</a>
+                    </div>
+                    <div class="tool-desc">تأليف موسيقى باستخدام AI.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card c-green">
+            <div class="card-header">
+                <div class="number-badge">5</div>
+                <h2 class="card-title">الشات بوت والمساعدات</h2>
+            </div>
+            <div class="card-subtitle">أدوات لبناء الشات بوت والمساعدات الذكية وأتمتة المحادثات.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=64" class="tool-icon">
+                        <a href="https://cloud.google.com/dialogflow" target="_blank" class="tool-name">Dialogflow</a>
+                    </div>
+                    <div class="tool-desc">من Google لبناء شات بوت احترافي.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=rasa.com&sz=64" class="tool-icon">
+                        <a href="https://rasa.com" target="_blank" class="tool-name">Rasa</a>
+                    </div>
+                    <div class="tool-desc">لبناء Open-source أنظمة محادثة متقدمة.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=make.com&sz=64" class="tool-icon">
+                        <a href="https://www.make.com" target="_blank" class="tool-name">Make (Make AI)</a>
+                    </div>
+                    <div class="tool-desc">أتمتة وربط الأدوات مع بعض (Automation).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card c-pink">
+            <div class="card-header">
+                <div class="number-badge">6</div>
+                <h2 class="card-title">التصميم والإبداع</h2>
+            </div>
+            <div class="card-subtitle">أدوات تصميم مبتكرة تساعدك على الإبداع بسرعة واحترافية.</div>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=canva.com&sz=64" class="tool-icon">
+                        <a href="https://www.canva.com" target="_blank" class="tool-name">Canva</a>
+                    </div>
+                    <div class="tool-desc">تصميم سريع وسهل + AI features.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=64" class="tool-icon">
+                        <a href="https://firefly.adobe.com" target="_blank" class="tool-name">Adobe Firefly</a>
+                    </div>
+                    <div class="tool-desc">توليد صور وتأثيرات احترافية من Adobe.</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-info">
+                        <img src="https://www.google.com/s2/favicons?domain=uizard.io&sz=64" class="tool-icon">
+                        <a href="https://uizard.io" target="_blank" class="tool-name">Uizard</a>
+                    </div>
+                    <div class="tool-desc">تحويل الأفكار إلى تصميم بسرعة AI.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wide-card-container">
+            <div class="card c-wide">
+                <div class="wide-content">
+                    <div class="number-badge" style="background-color: #4f46e5;">7</div>
+                    <div>
+                        <h2 class="card-title" style="margin-bottom: 5px;">الكتابة والإنتاجية</h2>
+                        <div class="card-subtitle" style="text-align: right;">أدوات تساعدك على الكتابة، تحسين المحتوى، وتنظيم العمل وزيادة الإنتاجية.</div>
+                    </div>
+                </div>
+                <div class="wide-tools">
+                    <div class="tool-item">
+                        <div class="tool-info">
+                            <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=64" class="tool-icon">
+                            <a href="https://www.notion.so" target="_blank" class="tool-name">Notion AI</a>
+                        </div>
+                        <div class="tool-desc">تنظيم العمل + كتابة وإدارة مشاريع.</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-info">
+                            <img src="https://www.google.com/s2/favicons?domain=grammarly.com&sz=64" class="tool-icon">
+                            <a href="https://www.grammarly.com" target="_blank" class="tool-name">Grammarly</a>
+                        </div>
+                        <div class="tool-desc">تصحيح وتحسين اللغة الإنجليزية.</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-info">
+                            <img src="https://www.google.com/s2/favicons?domain=copy.ai&sz=64" class="tool-icon">
+                            <a href="https://www.copy.ai" target="_blank" class="tool-name">Copy.ai</a>
+                        </div>
+                        <div class="tool-desc">كتابة محتوى تسويقي.</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-info">
+                            <img src="https://www.google.com/s2/favicons?domain=quillbot.com&sz=64" class="tool-icon">
+                            <a href="https://quillbot.com" target="_blank" class="tool-name">QuillBot</a>
+                        </div>
+                        <div class="tool-desc">إعادة صياغة النصوص وتحسينها.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        💡 الذكاء الاصطناعي لا يغني عنك... <span>لكنه يجعل عملك أسرع وأسهل وأذكى.</span> 🚀
+    </div>
+
+</body>
+</html>
