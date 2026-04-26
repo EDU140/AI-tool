@@ -22,10 +22,29 @@
         body {
             font-family: 'Cairo', sans-serif;
             background-color: var(--bg-main);
-            background-image: radial-gradient(circle at top, #0f172a, #060b19);
+            /* تم تحديث الخلفية هنا مع تدرج لوني شفاف لتوضيح النصوص */
+            background-image: radial-gradient(circle at top, rgba(15, 23, 42, 0.85), rgba(6, 11, 25, 0.95)), url('hatem.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-light);
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px; /* تقليل الحواف قليلاً لإعطاء مساحة للشريط العلوي */
+        }
+
+        /* --- Top Bar & Logos --- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1400px;
+            margin: 0 auto 20px auto;
+            padding: 0 10px;
+        }
+        .logo-img {
+            max-height: 140px; /* تم تكبير حجم اللوجو هنا */
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
         }
 
         /* --- Header --- */
@@ -206,6 +225,7 @@
             background: rgba(59, 130, 246, 0.1);
             border-radius: 15px;
             border: 1px dashed rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(5px);
         }
         .footer span {
             color: #6ee7b7;
@@ -220,10 +240,20 @@
         }
         @media (max-width: 768px) {
             .grid-container { grid-template-columns: 1fr; }
+            .logo-img { max-height: 80px; } /* تم تكبيرها أيضاً في شاشات الجوال */
+            .top-bar { margin-bottom: 30px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- الشريط العلوي الذي يحتوي على الشعارات -->
+    <div class="top-bar">
+        <!-- الشعار الأيمن -->
+        <img src="logo2.png" alt="شعار اليمين" class="logo-img">
+        <!-- الشعار الأيسر -->
+        <img src="logo1.png" alt="شعار اليسار" class="logo-img">
+    </div>
 
     <div class="page-header">
         <h1>أفضل <span>أدوات الذكاء الاصطناعي</span></h1>
